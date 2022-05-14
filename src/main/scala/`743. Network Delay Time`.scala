@@ -52,9 +52,10 @@ object `743. Network Delay Time` {
           val newMinimalDelay      = Math.min(previousMinimalDelay, worstCaseDelay)
           val needsRecalculation   = previousMinimalDelay > newMinimalDelay
           val newRoute             =
-            if (visited(nodeKey) && !needsRecalculation) route
-            else (nodeKey, newMinimalDelay) :: route
-          val newAcc               = acc + (nodeKey -> newMinimalDelay)
+            if (!visited(nodeKey) || needsRecalculation) (nodeKey, newMinimalDelay) :: route
+            else route
+
+          val newAcc = acc + (nodeKey -> newMinimalDelay)
           (newAcc, newRoute)
       }
 
