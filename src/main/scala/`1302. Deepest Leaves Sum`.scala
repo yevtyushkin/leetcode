@@ -1,7 +1,5 @@
 package com.yevtyushkin.leetcode
 
-import scala.annotation.tailrec
-
 object `1302. Deepest Leaves Sum` {
   // Given Definition
   class TreeNode(
